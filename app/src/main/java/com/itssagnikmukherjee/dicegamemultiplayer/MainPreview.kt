@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 fun MainPreview() {
     Column {
         Text(text = "Player 1")
+        Text(text = "Score : ")
         Image(painter = painterResource(id = R.drawable.dice_1), contentDescription = "")
         Row {
             Button(onClick = { /*TODO*/ }) {
