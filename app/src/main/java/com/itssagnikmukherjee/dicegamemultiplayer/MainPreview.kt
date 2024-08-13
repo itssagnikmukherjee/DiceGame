@@ -5,6 +5,7 @@ import android.provider.MediaStore.Images
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,10 +25,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.motionEventSpy
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.itssagnikmukherjee.dicegamemultiplayer.ui.theme.MyYellow
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
@@ -54,7 +57,7 @@ fun MainPreview() {
 
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().background(MyYellow),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -73,7 +76,7 @@ fun MainPreview() {
             contentDescription = "",
             modifier = Modifier
                 .rotate(rotation.value)
-                .size(100.dp)
+                .size(300.dp)
         )
 
         Row {
