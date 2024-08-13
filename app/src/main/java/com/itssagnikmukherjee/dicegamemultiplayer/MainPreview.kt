@@ -52,14 +52,6 @@ fun MainPreview() {
         currentImg = Random.nextInt(6) + 1
     }
 
-    if (player1Score>=20 || player2Score>=20) {
-        if (player1Score>player2Score) {
-            Text(text = "Player 1 wins")
-        } else {
-            Text(text = "Player 2 wins")
-        }
-    }
-
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -80,33 +72,40 @@ fun MainPreview() {
             contentDescription = "",
             modifier = Modifier
                 .rotate(rotation.value)
-                .size(100.dp)
+                .size(300.dp)
         )
-
-        Row {
-            Button(
-                onClick = {
-                    coroutineScope.launch {
-                        rollDice()
-                        player1Score += currentImg
-                        player1turn = false
-                    }
-                },
-                enabled = player1turn
-            ) {
-                Text(text = "Player 1")
+        if (player1Score>=20 || player2Score>=20) {
+            if (player1Score>player2Score) {
+                Text(text = "Player 1 wins")
+            } else {
+                Text(text = "Player 2 wins")
             }
-            Button(
-                onClick = {
-                    coroutineScope.launch {
-                        rollDice()
-                        player2Score += currentImg
-                        player1turn = true
-                    }
-                },
-                enabled = !player1turn
-            ) {
-                Text(text = "Player 2")
+        }else {
+            Row {
+                Button(
+                    onClick = {
+                        coroutineScope.launch {
+                            rollDice()
+                            player1Score += currentImg
+                            player1turn = false
+                        }
+                    },
+                    enabled = player1turn
+                ) {
+                    Text(text = "Player 1")
+                }
+                Button(
+                    onClick = {
+                        coroutineScope.launch {
+                            rollDice()
+                            player2Score += currentImg
+                            player1turn = true
+                        }
+                    },
+                    enabled = !player1turn
+                ) {
+                    Text(text = "Player 2")
+                }
             }
         }
     }
