@@ -52,6 +52,13 @@ fun MainPreview() {
         currentImg = Random.nextInt(6) + 1
     }
 
+    if (player1Score>=20 || player2Score>=20) {
+        if (player1Score>player2Score) {
+            Text(text = "Player 1 wins")
+        } else {
+            Text(text = "Player 2 wins")
+        }
+    }
 
     Column(
         modifier = Modifier.fillMaxSize(),
